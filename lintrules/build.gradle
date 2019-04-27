@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.tools.lint:lint-api:26.0.0-beta2'
+    compile 'com.android.tools.lint:lint-checks:26.0.0-beta2'
+    testCompile 'com.android.tools.lint:lint-tests:26.0.0-beta2'
+}
+
+jar {
+    manifest{
+        attributes("Lint-Registry": "com.example.lintrules.IssueRegister")
+    }
+}
+
+configurations {
+    lintJarOutput
+}
+
+dependencies {
+    lintJarOutput files(jar)
+}
+
+defaultTasks 'assemble'

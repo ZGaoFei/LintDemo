@@ -17,7 +17,9 @@ import com.intellij.psi.PsiMethodCallExpression;
 
 import org.jetbrains.uast.UCallExpression;
 
-
+/**
+ * 添加ViewTest类中getName()方法的检查
+ */
 public class TestOneDetector extends Detector implements Detector.UastScanner {
 
     private static final Class<? extends Detector> DETECTOR_CLASS = TestOneDetector.class;

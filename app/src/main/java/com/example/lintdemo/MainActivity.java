@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvShow;
     private TextView tvTest;
 
+    private TestView testView;
+    private TestView testView2;
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -39,7 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewTest.setName("hello world");
         String name = viewTest.getName();
 
+        TestView testView = findViewById(R.id.test_view);
+        TestView testView2 = new TestView(this);
+
         makeText();
+
     }
 
     private void init() {
@@ -88,8 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void makeText() {
         String b = "lint is a check code tools";
-
-        TestView testView = new TestView();
 
         ViewTest viewTest = new ViewTest();
         viewTest.setName("hello world");

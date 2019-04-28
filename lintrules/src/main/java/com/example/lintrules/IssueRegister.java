@@ -7,6 +7,8 @@ import java.util.List;
 import com.android.tools.lint.client.api.IssueRegistry;
 import com.android.tools.lint.detector.api.Issue;
 import com.example.lintrules.detectors.SampleCodeDetector;
+import com.example.lintrules.detectors.TestOneDetector;
+import com.example.lintrules.detectors.ToastUtilsDetector;
 import com.example.lintrules.detectors.XsfActivityFragmentLayoutNameDetector;
 import com.example.lintrules.detectors.XsfCustomToastDetector;
 import com.example.lintrules.detectors.XsfLogDetector;
@@ -26,10 +28,10 @@ public class IssueRegister extends IssueRegistry {
 
     @Override
     public List<Issue> getIssues() {
-        System.out.println("*******XSF LINT RULES WORKS*******");
-        return Collections.singletonList(
-                SampleCodeDetector.ISSUE
+        return Arrays.asList(
+                SampleCodeDetector.ISSUE,
+                TestOneDetector.ISSUE,
+                ToastUtilsDetector.ISSUE
         );
     }
-
 }

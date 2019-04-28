@@ -33,8 +33,8 @@ public class XsfLogDetector extends Detector implements Detector.JavaScanner {
     );
 
     private static final String ISSUE_ID = "LogUseError";
-    private static final String ISSUE_DESCRIPTION = "FBI WARING!:You should use our {AppLog}";
-    private static final String ISSUE_EXPLANATION = "You should NOT use Log directly. Instead you should use AppLog we offered.";
+    private static final String ISSUE_DESCRIPTION = "hahahahahahahahhaah";
+    private static final String ISSUE_EXPLANATION = "不好意思被发现了！！！";
     private static final Category ISSUE_CATEGORY = Category.CORRECTNESS;
     private static final int ISSUE_PRIORITY = 9;
     private static final Severity ISSUE_SEVERITY = Severity.WARNING;

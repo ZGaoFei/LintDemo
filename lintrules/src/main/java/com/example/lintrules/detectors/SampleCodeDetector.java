@@ -51,8 +51,8 @@ public class SampleCodeDetector extends Detector implements UastScanner {
             // `monospace`, *italic*, and **bold**.
             "举起手来，你被发现了！！！",
             Category.CORRECTNESS,
-            6,
-            Severity.WARNING,
+            9,
+            Severity.ERROR,
             new Implementation(
                     SampleCodeDetector.class,
                     Scope.JAVA_FILE_SCOPE));
@@ -82,7 +82,7 @@ public class SampleCodeDetector extends Detector implements UastScanner {
 
                 if (string.contains("lint") && string.matches(".*\\blint\\b.*")) {
                     context.report(ISSUE, expression, context.getLocation(expression),
-                            "This code mentions `lint`: **Congratulations**");
+                            "检测到了字符串中带有lint");
                 }
             }
         };

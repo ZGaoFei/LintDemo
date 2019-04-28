@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lintdemo.view.TestView;
+import com.example.lintdemo.view.ViewTest;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnClick;
@@ -31,14 +34,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity1_main);
         initViews();
         init();
+
+        ViewTest viewTest = new ViewTest();
+        viewTest.setName("hello world");
+        String name = viewTest.getName();
+
+        makeText();
     }
 
     private void init() {
         System.out.println("lint");
 
-        Toast.makeText(this, "lint", Toast.LENGTH_SHORT).show();
+        System.out.println("lint is hahahah");
+
+        String a = "lint is hahahaha";
+
+        Toast.makeText(this, "test log", Toast.LENGTH_SHORT).show();
 
         Log.d("lint", "lint");
+
+        Toast.makeText(this, "test toast", Toast.LENGTH_SHORT).show();
 
         new Message();
         Message.obtain();
@@ -69,5 +84,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvShow.setText(lintTestBean.name + "\n" +
                 lintTestBean.age + "\n");
 
+    }
+
+    private void makeText() {
+        String b = "lint is a check code tools";
+
+        TestView testView = new TestView();
+
+        ViewTest viewTest = new ViewTest();
+        viewTest.setName("hello world");
+        String name = viewTest.getName();
     }
 }

@@ -42,7 +42,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewTest.setName("hello world");
         String name = viewTest.getName();
 
+        Button button = findViewById(R.id.One);
+        TextView textView = findViewById(R.id.Show);
+
         TestView testView = findViewById(R.id.test_view);
+
+        TestView testView1;
+        testView1 = findViewById(R.id.test_view);
+
         TestView testView2 = new TestView(this);
 
         makeText();

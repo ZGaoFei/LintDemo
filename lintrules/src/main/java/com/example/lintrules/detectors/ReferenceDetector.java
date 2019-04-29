@@ -71,7 +71,7 @@ public class ReferenceDetector extends Detector implements Detector.UastScanner 
             PsiElement resolved = statement.resolve();
             if (resolved instanceof PsiClass) {
                 String qualifiedName = ((PsiClass)resolved).getQualifiedName();
-                if (CHECK_PACKAGE.equals(qualifiedName)) {
+                if (CHECK_PACKAGE.equals(qualifiedName) || qualifiedName.equals("com.example.lintdemo.view.TestView")) {
                     Location location = this.context.getLocation(statement);
                     this.context.report(ISSUE, statement, location, "不能在这里引入这个包");
                 }

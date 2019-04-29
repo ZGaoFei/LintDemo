@@ -15,6 +15,10 @@ import com.android.tools.lint.detector.api.XmlContext;
 
 import org.w3c.dom.Element;
 
+/**
+ * 扫描XML的节点
+ * 根据节点判断是否使用的是某个view
+ */
 public class LayoutDetector extends ResourceXmlDetector {
     private static final Class<? extends Detector> DETECTOR_CLASS = LayoutDetector.class;
     private static final EnumSet<Scope> DETECTOR_SCOPE = Scope.RESOURCE_FILE_SCOPE;

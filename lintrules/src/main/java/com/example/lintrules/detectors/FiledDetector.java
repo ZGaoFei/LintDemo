@@ -33,6 +33,9 @@ import org.jetbrains.uast.UField;
 import org.jetbrains.uast.UMethod;
 import org.jetbrains.uast.UVariable;
 
+/**
+ * 全局变量的扫描
+ */
 public class FiledDetector extends Detector implements Detector.UastScanner {
     private static final Class<? extends Detector> DETECTOR_CLASS = FiledDetector.class;
     private static final EnumSet<Scope> DETECTOR_SCOPE = Scope.JAVA_FILE_SCOPE;

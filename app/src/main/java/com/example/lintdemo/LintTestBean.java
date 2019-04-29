@@ -1,10 +1,5 @@
 package com.example.lintdemo;
 
-/**
- * Author: 彩笔学长
- * Time: created at 2016/12/14.
- * Description:
- */
 
 public class LintTestBean {
     public String name;

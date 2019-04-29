@@ -25,8 +25,8 @@ public class IssueRegister extends IssueRegistry {
     @Override
     public List<Issue> getIssues() {
         return Arrays.asList(
-                /*SampleCodeDetector.ISSUE,
-                TestOneDetector.ISSUE,
+                SampleCodeDetector.ISSUE,
+                /*TestOneDetector.ISSUE,
                 ReferenceDetector.ISSUE,
                 FiledDetector.ISSUE,
                 ToastUtilsDetector.ISSUE,*/

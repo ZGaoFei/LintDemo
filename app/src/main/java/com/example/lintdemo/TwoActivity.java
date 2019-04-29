@@ -28,4 +28,8 @@ public class TwoActivity extends AppCompatActivity {
 
         testView3 = new TestView(this);
     }
+
+    private void initData() {
+        TestView testView = new TestView(this);
+    }
 }

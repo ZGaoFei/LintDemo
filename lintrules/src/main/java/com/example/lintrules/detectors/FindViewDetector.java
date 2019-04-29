@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
 
+import com.android.tools.lint.client.api.UElementHandler;
 import com.android.tools.lint.detector.api.Category;
 import com.android.tools.lint.detector.api.Detector;
 import com.android.tools.lint.detector.api.Implementation;
@@ -19,6 +20,8 @@ import com.intellij.psi.PsiMethodCallExpression;
 import com.intellij.psi.PsiType;
 
 import org.jetbrains.uast.UCallExpression;
+import org.jetbrains.uast.UElement;
+import org.jetbrains.uast.UMethod;
 
 /**
  * 不好使
@@ -50,17 +53,25 @@ public class FindViewDetector extends Detector implements Detector.UastScanner {
     );
 
     @Override
-    public List<String> getApplicableMethodNames() {
-        return Collections.singletonList("findViewById");
+    public List<Class<? extends UElement>> getApplicableUastTypes() {
+        return Collections.singletonList(UMethod.class);
     }
 
     @Override
-    public void visitMethod(JavaContext context, UCallExpression node, PsiMethod method) {
-        PsiType psiType = method.getReturnType();
-        PsiClass psiClass = ((PsiClassType) psiType).resolve();
-        String qualifiedName = psiClass.getQualifiedName();
-        if (qualifiedName.equals(CHECK_PACKAGE)) {
-            context.report(ISSUE, context.getLocation(node), "在findViewById的时候返回了TestView这个类");
+    public UElementHandler createUastHandler(JavaContext context) {
+        return new FindViewHandler(context);
+    }
+
+    private static class FindViewHandler extends UElementHandler {
+        private JavaContext javaContext;
+
+        private FindViewHandler(JavaContext context) {
+            javaContext = context;
+        }
+
+        @Override
+        public void visitMethod(UMethod uMethod) {
+
         }
     }
 }

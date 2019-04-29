@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lintaar.Test;
 import com.example.lintdemo.view.TestView;
 import com.example.lintdemo.view.ViewTest;
 
@@ -23,24 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TestView testView;
     private TestView testView2;
 
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity1_main);
         initViews();
-        init();
-
-        ViewTest viewTest = new ViewTest();
-        viewTest.setName("hello world");
-        String name = viewTest.getName();
 
         Button button = findViewById(R.id.One);
         TextView textView = findViewById(R.id.Show);
@@ -51,29 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         testView1 = findViewById(R.id.test_view);
 
         TestView testView2 = new TestView(this);
-
-        makeText();
-
-    }
-
-    private void init() {
-        System.out.println("lint");
-
-        System.out.println("lint is hahahah");
-
-        String a = "lint is hahahaha";
-
-        Toast.makeText(this, "test log", Toast.LENGTH_SHORT).show();
-
-        Log.d("lint", "lint");
-
-        Toast.makeText(this, "test toast", Toast.LENGTH_SHORT).show();
-
-        new Message();
-        Message.obtain();
-        handler.obtainMessage();
-        handler.sendEmptyMessage(1);
-        getLayoutInflater().inflate(R.layout.time, (ViewGroup) findViewById(R.id.activity_main));
     }
 
     private void initViews() {
@@ -81,6 +47,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClick.setOnClickListener(this);
         tvShow = (TextView) findViewById(R.id.Show);
 
+        Button button = findViewById(R.id.One);
+        TextView textView = findViewById(R.id.Show);
+
+        TestView testView = findViewById(R.id.test_view);
+
+        TestView testView1;
+        testView1 = findViewById(R.id.test_view);
+
+        TestView testView2 = new TestView(this);
     }
 
     @Override
@@ -93,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showText() {
-
         LintTestBean lintTestBean = new LintTestBean("lint", "lint");
         tvShow.setText(lintTestBean.name + "\n" +
                 lintTestBean.age + "\n");
@@ -106,5 +80,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ViewTest viewTest = new ViewTest();
         viewTest.setName("hello world");
         String name = viewTest.getName();
+
+        TestView testView = new TestView(this);
+        TestView testView2 = new TestView(this);
+    }
+
+    private void init() {
+        TestView testView = findViewById(R.id.test_view);
     }
 }
